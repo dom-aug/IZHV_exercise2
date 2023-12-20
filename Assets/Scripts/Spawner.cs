@@ -86,7 +86,7 @@ public class Spawner : MonoBehaviour
     {
         // Spawn the obstacle.
         var obstacle = Instantiate(obstaclePrefab, transform);
-
+        
         // Move it to the target location.
         var spawnDown = RandomBool();
         obstacle.transform.position += (Vector3)(spawnDown ? 
@@ -95,7 +95,8 @@ public class Spawner : MonoBehaviour
         );
         
         // Scale it.
-        obstacle.transform.localScale = new Vector3(spawnSize, spawnSize, spawnSize);
+        var tmpSpawnSize = RandomNormal(spawnSize, 0.2f);
+        obstacle.transform.localScale = new Vector3(tmpSpawnSize, tmpSpawnSize, tmpSpawnSize);
         
         // Move the obstacle into the correct layer.
         obstacle.layer = LayerMask.NameToLayer(spawnLayer);

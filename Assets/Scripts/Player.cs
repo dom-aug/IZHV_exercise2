@@ -175,10 +175,12 @@ public class Player : MonoBehaviour
                 mSpriteTransform.rotation, mTargetRotation, 
                 rotationSpeed * Time.fixedDeltaTime
             );
+            mSpriteRenderer.sprite = spritePog;
         }
         else
         { // Snap to target rotation once on solid ground.
             mSpriteTransform.rotation = mTargetRotation;
+            mSpriteRenderer.sprite = spriteNeutral;
         }
     }
     
